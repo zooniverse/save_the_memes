@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Save the Memes</title>
+    <meta charset="utf-8">
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:700|Open+Sans" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/styles/application.css">
+	</head>
+
+	<body>
+
+		<div class="section intro" data-scroll-index="0">
+			<h1 class="title">SAVE<br><i>the</i><br>MEMES</h1>
+			<p>
+				The internet is about to run out of cute pics of wild animals! What<br>
+				can stop it? Your help, of course. What? You want to help?<br>
+				Well then...
+			</p>
+			<button data-scroll-goto="1">Get to Work!</button>
+		</div>
+
+		<div class="navigation" id="navigation">
+			<h1 data-scroll-nav="0">SAVE <i>the</i> MEMES</h1>
+			<ul>
+				<li><a data-scroll-nav="1">Our Story</a></li>
+				<li><a data-scroll-nav="2">Meme Generator</a></li>
+				<li><a data-scroll-nav="3">What We Need</a></li>
+				<li><a data-scroll-nav="4">The Perks</a></li>
+			</ul>
+		</div>
+
+		<div class="section story" data-scroll-index="1">
+			<div class="columns two container story-top">
+				<div class="column left">&nbsp;</div>
+				<div class="column right">
+					<h2>Our Story</h2>
+					<p>
+						Right now Snapshot Serengeti provides the internet with a stead flow of awesome animal photos.
+						Yo are then able to insert those photos into a meme generator, share them on the interweb, and make your friends
+						chucke silently in their cubicles. <b>BUT</b> what would happen if the Snapshot team couldn't afford to
+						operate?
+					</p>
+				</div>
+			</div>
+			<div class="columns two container story-bottom">
+				<div class="column left">
+					<h2>What Can You Do to Help?</h2>
+					<p>
+						The best menthod? Head over to the Snapshot Serengeti indiegogo campaign and contribute what you can!
+						Anything you can give will help out the team. Given enough and you'll receive some sweet perks!
+					</p>
+					<p>
+						What else? Why make some memes, of course! Use our non-patented Meme Generator 5000 and make some memes.
+					</p>
+
+					<div class="button-block">
+						<a href="http://www.indiegogo.com/projects/save-snapshot-serengeti"><button>Donate!</button></a>
+						<button data-scroll-goto="2">Generate!</button>
+					</div>
+				</div>
+				<div class="column right">&nbsp;</div>
+			</div>
+		</div>
+
+		<div class="section memes" data-scroll-index="2">
+			<div class="header center">
+				<h2>Meme Generator 5000</h2>
+				<p>Make some memes and spread the word!</p>
+			</div>
+
+			<div class="columns two container">
+				<div class="left column">
+					<form id="generate-form">
+						<input type="text" placeholder="URL" name="image-url">
+						<input type="text" placeholder="Top Text" name="top-text" maxlength="23">
+						<input type="text" placeholder="Bottom Text" name="bottom-text" maxlength="23">
+						<input type="submit" style="display: none"></input>
+					</form>
+				</div>
+
+				<div class="right column">
+					<div class="image-container" id="image-container">
+						<span>meme will be here!</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="columns two container">
+				<div class="left column">
+						<button type="submit" id="generate">Generate!</button>
+				</div>
+				<div class="right column">
+					<a><button class="download" id="download">Download</button></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="section contributions" data-scroll-index="3">
+			<div class="columns two container">
+				<div class="left column">
+					<h2>Snapshot Serengeti Needs Your Help!</h2>
+					<p>[plea for help text here]</p>
+					<a href="http://www.indiegogo.com/projects/save-snapshot-serengeti"><button>Donate!</button></a>
+				</div>
+					
+				<div class="right column">
+
+					<!-- this is hilariously bad -->
+					<div class="meter">
+						<div class="progress-container">
+							<div style="position: relative; height: 100%">
+								<div class="progress-bar"></div>
+								<div class="progress-amount">
+									<h3>$2,970</h3>
+									<p>Raised</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="expenses">
+						<h3>Break it down now</h3>
+						<ul>
+							<li><div class="highlight large">$33,000</div> (Goal)</li>
+							<li><div class="highlight">$9,000</div> Vehicle Maintenance</li>
+							<li><div class="highlight">$9,000</div> Vehicle Fuel</li>
+							<li><div class="highlight">$6,800</div> Salary for Field Assistants, Daniel and Stand</li>
+							<li><div class="highlight">$4,000</div> Replacement Camera Traps</li>
+							<li><div class="highlight">$3,000</div> Indiegogo & Paypal Fees, Perk Fulfillment</li>
+							<li><div class="highlight">$1,200</div> Rent for Housing</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section perks center" data-scroll-index="4">
+			<div class="header center">
+				<h2>Check these awesome perks!</h2>
+				<p>Get any of this awesomeness with your contribution!</p>
+			</div>
+
+			<div class="perk-slider container">
+				<ul>
+					<li>
+						<img src="http://placehold.it/100">
+						<h3>Spice Up Your Screen</h3>
+            <p>In addition to the warm, fuzzy feeling that you'll get by donating to Save Snapshot Serengeti we'll also email you 5 awesome high-resolution images from our collection. </p>
+					</li>
+					<li>
+						<img src="http://placehold.it/100">
+						<h3>First Look</h3>
+            <p>Have your eyes be the first to see photos from Season 7. Funders at this level will get access to Season 7 for an entire week before we open it up to the rest of the world.</p>
+					</li>
+					<li>
+						<img src="http://placehold.it/100">
+						<h3>Snapshot Post Card</h3>
+            <p>We'll take our favorite Snapshot Serengeti photo, turn it into a postcard, slap on a Tanzanian stamp, and send it to you from our Serengeti research station.</p>
+					</li>
+					<li>
+						<img src="http://placehold.it/100">
+						<h3>Snapshot Greeting Cards</h3>
+            <p>We'll send you a set of 4 quality cardstock greeting cards. Each will feature a different fantastic photo and be guaranteed dust-free so you can mail them out to friends and family.</p>
+					</li>
+					<li>
+						<img src="http://placehold.it/100">
+						<h3>Wildebeest on Your Wall</h3>
+            <p>Think the last thing you want to see is *another* wildebeest? How about seeing all the wildebeest at once? A $99 donation gets you a wildebeest photo-mosaic poster to hang proudly on your wall.</p>
+					</li>
+					<li>
+						<img src="http://placehold.it/100">
+						<h3>Serengeti Self-portrait</h3>
+            <p>Tired of the same old selfie for your Facebook profile? Add a lion! Send us a photo of yourself and we'll bring it into the field and snap a picture of your picture next to our lions.</p>
+					</li>
+					<li>
+						<img src="http://placehold.it/100">
+						<h3>Fancy Photograph</h3>
+            <p>Our camera traps aren't the only photographers in Serengeti. Our resident lion-tracker, Daniel Rosengren, has generously donated one of his world-class photos to our cause. For a $360 donation, receive this limited edition, gallery quality print, signed by the Snapshot team.</p>
+					</li>
+					<li>
+						<img src="http://placehold.it/100">
+						<h3>Sponsor-a-Camera-Trap</h3>
+            <p>Your generous donation will not only purchase a new camera trap and theoretically-hyena-proof-case, but also the batteries and SD cards to keep this camera snapping away for years to come.</p>
+					</li>
+					<li>
+						<img src="http://placehold.it/100">
+						<h3>Choose-Your-Own-Adventure-Cam</h3>
+            <p>Want to sponsor a camera trap but are really tired of Thomson's gazelles? We'll let you *choose* the camera you want to sponsor from your favorite photograph.</p>
+					</li>
+					<li>
+						<img src="http://placehold.it/100">
+						<h3>Dead Camera Centerpiece</h3>
+            <p>Impress your guests with a mauled camera trap straight from the Serengeti. We lose somewhere between 30-50 cameras a year to hyenas, elephants, baboons, fire, rain, and ants. We'll send you one of these dead traps along with the last picture it ever took. </p>
+					</li>
+					<li>
+						<img src="http://placehold.it/100">
+						<h3>In-person Presentation</h3>
+            <p>A member of the Snapshot Serengeti team will give a presentation at an event of your choice near Washington DC, Minneapolis, Chicago, Oxford (England), or in the Serengeti itself.</p>
+					</li>
+					<li>
+						<img src="http://placehold.it/100">
+						<h3>Sponsor a GPS collar</h3>
+            <p>Think radio-collared lions are cool? GPS collars take it to a whole new level. Your donation will get you exclusive access to the live data coming in from our one-and-only GPS-collared Serengeti lion. Plus everything else.</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="section footer">
+			<img src="http://placehold.it/200">
+			<h3>Thanks for your Time!</h3>
+			<p>
+				With your help we'll be back snapping shots of the Serengeti<br>
+				in no time flat! In the mean time, here is a pic of cat.
+			</p>
+		</div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/scripts/vendor/jquery.scroll.js"></script>
+    <script src="/scripts/vendor/spin.js"></script>
+    <script src="/scripts/application.js"></script>
+	</body>
+</html>

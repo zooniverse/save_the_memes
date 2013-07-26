@@ -1,0 +1,19 @@
+{
+  "name": "savethememes",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "~3.3.4",
+    "coffee-script": "~1.6.3",
+    "stylus": "~0.34.1",
+    "coffee-middleware": "~0.2.0",
+    "connect-assets": "~2.5.0",
+    "canvas": "~1.0.4",
+    "request": "~2.25.0",
+    "shortid": "~2.0.0",
+    "aws-sdk": "~1.4.1"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}

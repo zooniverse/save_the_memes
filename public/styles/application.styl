@@ -1,0 +1,405 @@
+@import "nib"
+
+$teal = #019bb2
+
+html
+	border: 0
+
+body
+	background: #f9f8f3
+	font-family: sans-serif
+	margin: 0
+	padding: 0
+
+button
+	appearance: none
+	background: none
+	border-color: #fff
+	border-radius: 55px
+	border-style: solid
+	border-width: 3px
+	color: #fff
+	cursor: pointer
+	font-size: 18px
+	font-weight: 700
+	letter-spacing: 1px
+	padding: 20px 30px
+	text-decoration: none
+	text-transform: uppercase
+
+h1, h2, h3, h4, h5, h6, button
+	font-family: "Roboto Slab", serif
+	text-transform: uppercase
+
+h2
+	font-size: 24px
+	line-height: 27px
+	margin: 0 0 10px 0
+
+h3
+	font-size: 18px
+	line-height: 22px
+	margin: 0 0 10px 0
+
+img
+	border: 0
+	margin: 0
+
+p, li
+	font-family: "Open Sans", sans-serif
+
+p
+	color: #414042
+	font-size: 14px
+	line-height: 20px
+	margin: 5px 0
+
+	&:not(:first-of-type)
+		margin: 10px 0 0 0
+
+::-webkit-input-placeholder
+	color: #fff
+
+:-moz-placeholder
+	color: #fff
+
+::-moz-placeholder
+	color: #fff
+
+:-ms-input-placeholder
+	color: #fff
+
+.section
+	position: relative
+
+	p
+		color: inherit
+
+.triangle
+	content: ""
+	height: 25px
+	left: 50%
+	margin-left: -12px
+	margin-top: -13px
+	position: absolute
+	transform: rotate(45deg)
+	top: 100%
+	width: 25px
+
+.center
+	text-align: center
+
+.header
+	margin-bottom: 50px
+
+.columns
+	clearfix()
+	margin-bottom: 20px
+
+	.column
+		box-sizing: border-box
+		float: left
+		padding: 0 10px
+
+		&:first-child
+			padding-right: 100px
+
+		&:last-child
+			padding-left: 100px
+
+	&.two
+		.column
+			width: 50%
+
+.container
+	margin-left: auto
+	margin-right: auto
+	width: 960px
+
+
+
+
+.intro
+	background: $teal
+	color: #fff
+	height: 750px
+	padding: 30px 0
+	text-align: center
+
+	.title
+		font-size: 80px
+		letter-spacing: 3px
+		line-height: 1.3em
+
+		i
+			font-family: "Open Sans", sans-serf
+			font-weight: 400
+			text-transform: none
+
+	p
+		font-size: 1.05em
+		font-weight: 700
+		line-height: 1.4em
+		margin: 0 0 60px 0
+
+.navigation
+	background: #fff
+	box-sizing: border-box
+	height: 60px
+	padding: 0 30px
+	position: absolute
+	top: 800px
+	width: 100%
+	z-index: 11
+
+	h1
+		color: $teal
+		float: left
+		font-size: 22px
+		height: 100%
+		line-height: 60px
+		margin: 0
+
+		i
+			bottom: 3px
+			font-family: "Open Sans", sans-serif
+			font-size: 0.6em
+			font-weight: 400
+			padding: 0 4px
+			position: relative
+			text-transform: none
+
+	ul
+		clearfix()
+		float: right
+		font-size: 13px
+		font-weight: 700
+		height: 100%
+		list-style: none
+		margin: 0
+
+		li
+			float: left
+			height: 100%
+			margin: 0 0 0 20px
+			text-transform: uppercase
+
+			a
+				color: #000
+				cursor: pointer
+				display: block
+				height: 100%
+				line-height: 55px
+				text-decoration: none
+
+				&.active, &:hover
+					color: $teal
+
+.story
+	background: url(/images/story.png) no-repeat center #fff9eb
+	box-sizing: border-box
+	height: 1370px
+	padding: 55px 0 30px 0
+	z-index: 10
+
+	&:after
+		@extends .triangle
+		background: #fff9eb
+
+	.story-top
+		position: relative
+		top: 50px
+
+	.story-bottom
+		position: relative
+		margin-top: 700px
+
+	.button-block
+		clearfix()
+		margin-top: 20px
+
+		> :first-child
+			float: left
+
+		> :last-child
+			float: right
+
+	button
+		border-color: $teal
+		color: $teal
+
+$meme-base-color = #07e69a
+.memes
+	background: $meme-base-color
+	color: #fff
+	padding: 90px 0 70px 0
+	z-index: 9
+
+	&:after
+		@extends .triangle
+		background: $meme-base-color
+
+	button
+		width: 100%
+
+	form
+
+		> *
+			width: 100%
+
+		input
+			background: none
+			border: 3px solid #fff
+			border-radius: 8px
+			box-sizing: border-box
+			color: #fff
+			font-size: 26px
+			margin: 0 0 22px 0
+			padding: 10px 13px
+
+			&:focus
+				background: #fff
+				color: $meme-base-color
+
+	.image-container
+		border: 5px dashed rgba(#000, 0.2)
+		border-radius: 10px
+		color: rgba(#000, 0.2)
+		display: table
+		min-height: 200px
+		position: relative
+		text-align: center
+		width: 100%
+
+		img
+			max-width: 100%
+
+		span
+			display: table-cell
+			vertical-align: middle
+
+	.download
+		display: none
+
+.contributions
+	background: $teal
+	box-sizing: border-box
+	color: #fff
+	padding: 120px 0 70px 0
+	z-index: 8
+
+	&:after
+		@extends .triangle
+		background: $teal
+
+	.right.column
+		padding-left: 130px
+		position: relative
+
+	.meter
+		border: 3px solid #fff
+		border-radius: 18px
+		box-sizing: border-box
+		left: 75px
+		height: 100%
+		padding: 5px 0
+		position: absolute
+		width: 34px
+
+	.expenses
+		position: relative
+		top: -30px
+
+	.progress-container
+		bottom: 0
+		height: 24% // Adjust as needed for campaign progress
+		position: absolute
+		right: 0
+		width: 100%
+
+	.progress-bar
+		background: $meme-base-color
+		border: 4px solid $teal
+		border-radius: 18px
+		box-sizing: border-box
+		height: 100%
+		position: absolute
+		width: 100%
+
+	.progress-amount
+		position: absolute
+		right: 225%
+		text-align: right
+		top: -9px
+
+		h3, p
+			margin: 0
+
+		&:after
+			border-bottom: 2px solid #fff
+			content: ""
+			left: 116%
+			position: absolute
+			top: 12px
+			width: 15px
+
+	ul
+		list-style: none
+		margin: 0
+		padding: 0
+
+		li
+			font-size: 11px
+			margin: 10px 0 30px 0
+
+			.highlight
+				display: inline-block
+				font-size: 16px
+				font-weight: 700
+
+				&.large
+					font-size: 55px
+					font-weight: 800
+
+$perks-background-color = #22211a
+.perks
+	background: $perks-background-color
+	color: #fff
+	padding: 90px 0 70px 0
+	z-index: 7
+
+	&:after
+		@extends .triangle
+		background: $perks-background-color
+
+	ul
+		clearfix()
+		height: 400px
+		list-style: none
+
+		li
+			box-sizing: border-box
+			display: none
+			float: left
+			padding: 0 13px
+			width: 25%
+
+			&.active
+				display: block
+
+			h3
+				height: 44px
+				margin: 0
+				vertical-align: text-bottom
+
+.footer
+	background: #2e2d29
+	color: #fff
+	padding: 90px 0
+	text-align: center
+	z-index: 6
+
+	img
+		margin-bottom: 50px
+	p
+		color: inherit
