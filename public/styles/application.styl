@@ -152,22 +152,9 @@ p
 	width: 100%
 	z-index: 11
 
-	h1
-		color: $teal
-		float: left
-		font-size: 22px
-		height: 100%
-		line-height: 60px
-		margin: 0
-
-		i
-			bottom: 3px
-			font-family: "Open Sans", sans-serif
-			font-size: 0.6em
-			font-weight: 400
-			padding: 0 4px
-			position: relative
-			text-transform: none
+	img
+		margin-top: 18px
+		max-width: 200px
 
 	ul
 		clearfix()
@@ -196,23 +183,45 @@ p
 					color: $teal
 
 .story
-	background: url(/images/story.png) no-repeat center #fff9eb
 	box-sizing: border-box
 	height: 1370px
-	padding: 55px 0 30px 0
 	z-index: 10
 
 	&:after
 		@extends .triangle
 		background: #fff9eb
 
+	.background
+		@extends .container
+		background-position: center
+		background-repeat: no-repeat
+		background-size: contain
+		height: 1170px
+		position: absolute
+		top: 45px
+		width: 100%
+		z-index: 1
+
+		&.happy
+			background-image: url(/images/story_good.svg)
+
+		&.sad
+			background-image: url(/images/story_bad.svg)
+			display: none
+
 	.story-top
 		position: relative
-		top: 50px
+		top: 130px
+		z-index: 2
+
+		button
+			margin-top: 30px
+			width: 300px
 
 	.story-bottom
 		position: relative
-		margin-top: 700px
+		margin-top: 715px
+		z-index: 2
 
 	.button-block
 		clearfix()
@@ -264,15 +273,18 @@ $meme-base-color = #07e69a
 	.image-container
 		border: 5px dashed rgba(#000, 0.2)
 		border-radius: 10px
+		box-sizing: border-box
 		color: rgba(#000, 0.2)
 		display: table
 		min-height: 200px
+		padding: 3px
 		position: relative
 		text-align: center
 		width: 100%
 
 		img
 			max-width: 100%
+			vertical-align: middle
 
 		span
 			display: table-cell
@@ -291,6 +303,12 @@ $meme-base-color = #07e69a
 	&:after
 		@extends .triangle
 		background: $teal
+
+	a
+		color: inherit
+		
+	button
+		margin-top: 30px
 
 	.right.column
 		padding-left: 130px
@@ -372,6 +390,9 @@ $perks-background-color = #22211a
 		@extends .triangle
 		background: $perks-background-color
 
+	img
+		margin-bottom: 50px
+
 	ul
 		clearfix()
 		height: 400px
@@ -401,5 +422,6 @@ $perks-background-color = #22211a
 
 	img
 		margin-bottom: 50px
+
 	p
 		color: inherit

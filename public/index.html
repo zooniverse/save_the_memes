@@ -21,7 +21,7 @@
 		</div>
 
 		<div class="navigation" id="navigation">
-			<h1 data-scroll-nav="0">SAVE <i>the</i> MEMES</h1>
+			<img src="/images/savememes_logo.svg" alt="Save the Memes">
 			<ul>
 				<li><a data-scroll-nav="1">Our Story</a></li>
 				<li><a data-scroll-nav="2">Meme Generator</a></li>
@@ -31,29 +31,26 @@
 		</div>
 
 		<div class="section story" data-scroll-index="1">
+			<div class="background happy" id="happy-story-background"></div>
+			<div class="background sad" id="sad-story-background"></div>
 			<div class="columns two container story-top">
 				<div class="column left">&nbsp;</div>
 				<div class="column right">
 					<h2>Our Story</h2>
 					<p>
-						Right now Snapshot Serengeti provides the internet with a stead flow of awesome animal photos.
-						Yo are then able to insert those photos into a meme generator, share them on the interweb, and make your friends
-						chucke silently in their cubicles. <b>BUT</b> what would happen if the Snapshot team couldn't afford to
-						operate?
+						Right now Snapshot Serengeti provides the internet with a steady flow of awesome animal photos.
+						You are then able to insert those photos into a meme generator, share them on the interweb, 
+						and make your friends chuckle silently in their cubicles. <b>BUT</b> what would happen if the 
+						Snapshot team couldn't afford to operate?
 					</p>
+					<button id="lets-watch">Let's Watch!</button>
 				</div>
 			</div>
 			<div class="columns two container story-bottom">
 				<div class="column left">
 					<h2>What Can You Do to Help?</h2>
-					<p>
-						The best menthod? Head over to the Snapshot Serengeti indiegogo campaign and contribute what you can!
-						Anything you can give will help out the team. Given enough and you'll receive some sweet perks!
-					</p>
-					<p>
-						What else? Why make some memes, of course! Use our non-patented Meme Generator 5000 and make some memes.
-					</p>
-
+					<p>The best method? Head over to the Snapshot Serengeti indiegogo campaign and contribute what you can! Anything you can give will help out the team, even just a buck. Give enough and you'll receive some sweet perks!</p>
+					<p>What else? Make some memes and help us spread the word! Use our non-patented Meme Generator 5000 and get your chuckle on!</p>
 					<div class="button-block">
 						<a href="http://www.indiegogo.com/projects/save-snapshot-serengeti"><button>Donate!</button></a>
 						<button data-scroll-goto="2">Generate!</button>
@@ -72,7 +69,7 @@
 			<div class="columns two container">
 				<div class="left column">
 					<form id="generate-form">
-						<input type="text" placeholder="URL" name="image-url">
+						<input type="text" placeholder="URL" name="image-url" id="image-url">
 						<input type="text" placeholder="Top Text" name="top-text" maxlength="23">
 						<input type="text" placeholder="Bottom Text" name="bottom-text" maxlength="23">
 						<input type="submit" style="display: none"></input>
@@ -100,7 +97,15 @@
 			<div class="columns two container">
 				<div class="left column">
 					<h2>Snapshot Serengeti Needs Your Help!</h2>
-					<p>[plea for help text here]</p>
+					<p>
+						We've been incredibly grateful for the time you've put into the site over the 
+						last few months. It's helped us get science done, and we still want your 
+						classifications and help in exploring. But if you could share the campaign 
+						link - <a href="http://igg.me/at/serengeti">igg.me/at/serengeti</a> - with your friends and family, that would be great. 
+						We're not asking for luxuries - have you seen our drop-toilet? - we're just 
+						trying to keep the land rovers chugging along and the cameras clicking by raising 
+						money to pay for diesel, equipment, and field assistant salaries.
+					</p>
 					<a href="http://www.indiegogo.com/projects/save-snapshot-serengeti"><button>Donate!</button></a>
 				</div>
 					
@@ -112,7 +117,7 @@
 							<div style="position: relative; height: 100%">
 								<div class="progress-bar"></div>
 								<div class="progress-amount">
-									<h3>$2,970</h3>
+									<h3>$3,108</h3>
 									<p>Raised</p>
 								</div>
 							</div>

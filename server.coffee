@@ -58,18 +58,18 @@ app.post '/', (req, res) ->
 					ctx.addFont impact
 					ctx.drawImage img, 0, 0, w, h, 0, 0, w, h
 
-					ctx.font = '90px Impact bold'
+					ctx.font = '80px Impact bold'
 					ctx.textAlign = 'center'
 					ctx.textBaseline = 'middle'
 					ctx.strokeStyle = 'black'
 					ctx.lineWidth = 10
 					ctx.fillStyle = 'white'
 
-					ctx.strokeText topText, w / 2, 80 
-					ctx.fillText topText, w / 2, 80
+					ctx.strokeText topText, w / 2, 65 
+					ctx.fillText topText, w / 2, 65
 
-					ctx.strokeText bottomText, w / 2, h - 80
-					ctx.fillText bottomText, w / 2, h - 80
+					ctx.strokeText bottomText, w / 2, h - 73
+					ctx.fillText bottomText, w / 2, h - 73
 
 					memedImage = __dirname + '/uploads/' + id + '-memed.jpg'
 					out = fs.createWriteStream memedImage
