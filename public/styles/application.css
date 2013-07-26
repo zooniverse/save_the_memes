@@ -176,6 +176,7 @@ p:not(:first-of-type) {
   z-index: 11;
 }
 .navigation img {
+  cursor: pointer;
   margin-top: 18px;
   max-width: 200px;
 }
