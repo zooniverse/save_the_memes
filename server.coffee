@@ -1,11 +1,15 @@
 AWS = require 'aws-sdk'
 Canvas = require 'canvas'
-Image = Canvas.Image
 express = require 'express'
 fs = require 'fs'
 http = require 'http'
 request = require 'request'
 shortId = require 'shortid'
+
+Font = Canvas.Font
+Image = Canvas.Image
+
+impact = new Font 'Impact', __dirname + '/lib/Impact.ttf'
 
 app = express()
 
@@ -51,6 +55,7 @@ app.post '/', (req, res) ->
 
 					canvas = new Canvas w, h
 					ctx = canvas.getContext '2d'
+					ctx.addFont impact
 					ctx.drawImage img, 0, 0, w, h, 0, 0, w, h
 
 					ctx.font = '90px Impact bold'
