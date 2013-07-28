@@ -1,6 +1,45 @@
 loadKey = (key) ->
  	unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1")) || false
 
+formatNumber = (n) ->
+  return n unless n
+  n.toString().replace /(\d)(?=(\d{3})+(?!\d))/g, '$1,'
+
+# Courtesy of http://bost.ocks.org/mike/shuffle/
+Array::shuffle = ->
+	m = @length
+
+	while m
+		i = Math.floor(Math.random() * m--)
+
+		t = @[m]
+		@[m] = @[i]
+		@[i] = t
+
+	@
+
+serengetiImages = [
+	'http://www.snapshotserengeti.org/subjects/standard/51e904fee0053a09c30b735c_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/51a39bcfe18f49172b19777c_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/51a332d6e18f49172b0cfe6f_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/51e8ed42e0053a09c308b433_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/51e8a9afe0053a09c300ea30_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/51a3528ae18f49172b10c2b2_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/51a37abae18f49172b15876b_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/50c214508a607540b9038e41_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/50c213e98a607540b9033aff_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/50c2104f8a607540b90033c4_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/50c2163b8a607540b904f94b_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/50c219198a607540b9071e73_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/50c217ce8a607540b90627be_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/50c211e68a607540b90187a0_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/50c2113a8a607540b900f706_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/50c217708a607540b905d640_0.jpg'
+].shuffle()
+
+campaignProgress = 6018
+campaignTotal = 33000
+
 $ ->
 	$.scrollIt()
 	
@@ -9,6 +48,13 @@ $ ->
 	imageContainer = $('#image-container')
 	imageUrlInput = $('#image-url')
 	downloadButton = $('#download')
+	progressContainer = $('#progress-container')
+	progressAmount = $('#progress-amount')
+
+
+	# Set progress meter height
+	progressContainer.css 'height', ((campaignProgress / campaignTotal) * 100) + '%'
+	progressAmount.html formatNumber campaignProgress
 
 
 	# Show four perks. For now.
@@ -19,15 +65,38 @@ $ ->
 
 	# Configure meme form.
 	if (url = loadKey('u')) and (url.indexOf 'www.snapshotserengeti.org')
+		stage = $('#stage-two')
 		img = new Image
 		img.onload = ->
 			imageContainer.html img
-			imageUrlInput.css 'display', 'none'
 			imageUrlInput.val url
 		img.src = url
 
 	else
-		console.log 'no valid url'
+		stage = $('#stage-one')
+
+		fragment = document.createDocumentFragment()
+		for i in [0..11]
+			img = new Image
+			img.src = serengetiImages[i]
+			
+			column = document.createElement('div')
+			column.className = 'column'
+			column.appendChild img
+
+			fragment.appendChild column
+
+		$('#preset-images').append fragment
+
+		stage.on 'click', 'img', (e) ->
+			newStage = $('#stage-two')
+			stage.hide()
+			newStage.show()
+
+			imageContainer.html e.currentTarget
+			imageUrlInput.val e.currentTarget.src
+
+	stage.show()
 
 
 	# Callback for generator form.
@@ -55,9 +124,8 @@ $ ->
 
 			img.src = url
 
-			console.log 'request success'
 		request.fail ->
-			console.log 'failure'
+			imageContainer.html '<span>error :(</span>'
 
 
 	# Register form callbacks.
@@ -67,14 +135,14 @@ $ ->
 			e.preventDefault()
 			handleGenerate e
 
+
+	# Switch story
 	isHappy = true
 	happyStoryBackground = $('#happy-story-background')
 	sadStoryBackground = $('#sad-story-background')
 	storyButton = $('#lets-watch')
 
-	# Switch story
 	storyButton.on 'click', (e) ->
-
 		if isHappy
 			happyStoryBackground.fadeOut 700
 			sadStoryBackground.fadeIn 700
@@ -87,9 +155,9 @@ $ ->
 			isHappy = true
 			storyButton.html 'Let\'s Watch!'
 
+
 	# Move navigation bar around
 	$(window).on 'scroll', (e) ->
-
 		navigation = $('#navigation')
 
 		if $(window).scrollTop() > '800'

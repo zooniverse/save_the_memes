@@ -1,6 +1,8 @@
 @import "nib"
 
 $teal = #019bb2
+$serif = "Roboto Slab", serif
+$sans-serif = "Open Sans", sans-serif
 
 html
 	border: 0
@@ -10,6 +12,9 @@ body
 	font-family: sans-serif
 	margin: 0
 	padding: 0
+
+a
+	color: inherit
 
 button
 	appearance: none
@@ -28,7 +33,7 @@ button
 	text-transform: uppercase
 
 h1, h2, h3, h4, h5, h6, button
-	font-family: "Roboto Slab", serif
+	font-family: $serif
 	text-transform: uppercase
 
 h2
@@ -44,9 +49,10 @@ h3
 img
 	border: 0
 	margin: 0
+	max-width: 100%
 
 p, li
-	font-family: "Open Sans", sans-serif
+	font-family: $sans-serif
 
 p
 	color: #414042
@@ -101,15 +107,20 @@ p
 		float: left
 		padding: 0 10px
 
-		&:first-child
-			padding-right: 100px
-
-		&:last-child
-			padding-left: 100px
-
 	&.two
+
 		.column
 			width: 50%
+
+			&:first-child
+				padding-right: 100px
+
+			&:last-child
+				padding-left: 100px
+
+	&.six
+		.column
+			width: 16.6%
 
 .container
 	margin-left: auto
@@ -132,7 +143,7 @@ p
 		line-height: 1.3em
 
 		i
-			font-family: "Open Sans", sans-serf
+			font-family: $sans-serif
 			font-weight: 400
 			text-transform: none
 
@@ -271,6 +282,23 @@ $meme-base-color = #07e69a
 				background: #fff
 				color: $meme-base-color
 
+	.stage
+		display: none
+
+	#stage-one
+
+		.column
+			height: 117px // bleh
+
+		img
+			border: 3px solid #fff
+			transition: all 0.2s ease-in-out
+
+			&:hover
+				border-width: 0
+				cursor: pointer
+				transform: scale(1.2)
+
 	.image-container
 		border: 5px dashed rgba(#000, 0.2)
 		border-radius: 10px
@@ -326,12 +354,12 @@ $meme-base-color = #07e69a
 		width: 34px
 
 	.expenses
+		left: 25px
 		position: relative
 		top: -30px
 
 	.progress-container
 		bottom: 0
-		height: 24% // Adjust as needed for campaign progress
 		position: absolute
 		right: 0
 		width: 100%
@@ -392,6 +420,7 @@ $perks-background-color = #22211a
 		background: $perks-background-color
 
 	img
+		border-radius: 50%
 		margin-bottom: 50px
 
 	ul
@@ -409,10 +438,51 @@ $perks-background-color = #22211a
 			&.active
 				display: block
 
+			a
+				text-decoration: none
+
 			h3
 				height: 44px
 				margin: 0
 				vertical-align: text-bottom
+
+			.perk-image
+				box-sizing: border-box
+				height: 200px
+				margin: 0 16px
+				padding: 45px 0 0 0
+				position: relative
+				text-align: center
+
+				&:hover
+					div
+						transform: scale(1.1)
+
+					img
+						box-shadow: 0 0 15px 0 rgba(#fff, 0.8)
+
+				div
+					position: relative
+					transition: all 0.2s ease-in-out
+					width: 100%
+					z-index: 1
+
+				img
+					left: 0
+					position: absolute
+					transition: all 0.2s ease-in-out
+					top: 0
+					width: 100%
+					z-index: 0
+
+				.call-to-action
+					font-size: 0.8em
+					font-style: italic
+
+				.perk-amount
+					font-family: $serif
+					font-size: 36px
+					font-weight: 700
 
 .footer
 	background: #2e2d29
@@ -422,6 +492,7 @@ $perks-background-color = #22211a
 	z-index: 6
 
 	img
+		border-radius: 50%
 		margin-bottom: 50px
 
 	p

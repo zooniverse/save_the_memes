@@ -7,6 +7,9 @@ body {
   margin: 0;
   padding: 0;
 }
+a {
+  color: inherit;
+}
 button {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -49,6 +52,7 @@ h3 {
 img {
   border: 0;
   margin: 0;
+  max-width: 100%;
 }
 p,
 li {
@@ -125,14 +129,17 @@ p:not(:first-of-type) {
   float: left;
   padding: 0 10px;
 }
-.columns .column:first-child {
-  padding-right: 100px;
-}
-.columns .column:last-child {
-  padding-left: 100px;
-}
 .columns.two .column {
   width: 50%;
+}
+.columns.two .column:first-child {
+  padding-right: 100px;
+}
+.columns.two .column:last-child {
+  padding-left: 100px;
+}
+.columns.six .column {
+  width: 16.6%;
 }
 .container,
 .story .background {
@@ -153,7 +160,7 @@ p:not(:first-of-type) {
   line-height: 1.3em;
 }
 .intro .title i {
-  font-family: "Open Sans", sans-serf;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   text-transform: none;
 }
@@ -312,6 +319,29 @@ p:not(:first-of-type) {
   background: #fff;
   color: #07e69a;
 }
+.memes .stage {
+  display: none;
+}
+.memes #stage-one .column {
+  height: 117px;
+}
+.memes #stage-one img {
+  border: 3px solid #fff;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.memes #stage-one img:hover {
+  border-width: 0;
+  cursor: pointer;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
 .memes .image-container {
   border: 5px dashed rgba(0,0,0,0.2);
   -webkit-border-radius: 10px;
@@ -374,12 +404,12 @@ p:not(:first-of-type) {
   width: 34px;
 }
 .contributions .expenses {
+  left: 25px;
   position: relative;
   top: -30px;
 }
 .contributions .progress-container {
   bottom: 0;
-  height: 24%;
   position: absolute;
   right: 0;
   width: 100%;
@@ -442,6 +472,8 @@ p:not(:first-of-type) {
   background: #22211a;
 }
 .perks img {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
   margin-bottom: 50px;
 }
 .perks ul {
@@ -469,10 +501,65 @@ p:not(:first-of-type) {
 .perks ul li.active {
   display: block;
 }
+.perks ul li a {
+  text-decoration: none;
+}
 .perks ul li h3 {
   height: 44px;
   margin: 0;
   vertical-align: text-bottom;
+}
+.perks ul li .perk-image {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 200px;
+  margin: 0 16px;
+  padding: 45px 0 0 0;
+  position: relative;
+  text-align: center;
+}
+.perks ul li .perk-image:hover div {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.perks ul li .perk-image:hover img {
+  -webkit-box-shadow: 0 0 15px 0 rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px 0 rgba(255,255,255,0.8);
+}
+.perks ul li .perk-image div {
+  position: relative;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  z-index: 1;
+}
+.perks ul li .perk-image img {
+  left: 0;
+  position: absolute;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+.perks ul li .perk-image .call-to-action {
+  font-size: 0.8em;
+  font-style: italic;
+}
+.perks ul li .perk-image .perk-amount {
+  font-family: "Roboto Slab", serif;
+  font-size: 36px;
+  font-weight: 700;
 }
 .footer {
   background: #2e2d29;
@@ -482,6 +569,8 @@ p:not(:first-of-type) {
   z-index: 6;
 }
 .footer img {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
   margin-bottom: 50px;
 }
 .footer p {

@@ -38,6 +38,10 @@ app.post '/', (req, res) ->
 	bottomText = req.body.bottomText.toUpperCase()
 
 	request.head url, (err, response, body) ->
+		if err
+			res.send 400
+			return
+
 		if response.headers['content-length'] < 500000
 			id = shortId.generate()
 

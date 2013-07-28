@@ -21,13 +21,13 @@
 		</div>
 
 		<div class="navigation" id="navigation">
-			<img src="/images/savememes_logo.svg" alt="Save the Memes" data-scroll-goto="0">
 			<ul>
 				<li><a data-scroll-nav="1">Our Story</a></li>
 				<li><a data-scroll-nav="2">Meme Generator</a></li>
 				<li><a data-scroll-nav="3">What We Need</a></li>
 				<li><a data-scroll-nav="4">The Perks</a></li>
 			</ul>
+			<img src="/images/savememes_logo.svg" alt="Save the Memes" data-scroll-goto="0">
 		</div>
 
 		<div class="section story" data-scroll-index="1">
@@ -66,29 +66,39 @@
 				<p>Make some memes and spread the word!</p>
 			</div>
 
-			<div class="columns two container">
-				<div class="left column">
-					<form id="generate-form">
-						<input type="text" placeholder="URL" name="image-url" id="image-url">
-						<input type="text" placeholder="Top Text" name="top-text" maxlength="23">
-						<input type="text" placeholder="Bottom Text" name="bottom-text" maxlength="23">
-						<input type="submit" style="display: none"></input>
-					</form>
-				</div>
-
-				<div class="right column">
-					<div class="image-container" id="image-container">
-						<span>meme will be here!</span>
-					</div>
+			<div id="stage-one" class="stage">
+				<div class="columns six container" id="preset-images"></div>
+				<div class="columns two container">
+					<h3>Select a Critter</h3>
 				</div>
 			</div>
 
-			<div class="columns two container">
-				<div class="left column">
-						<button type="submit" id="generate">Generate!</button>
+			<div id="stage-two" class="stage">
+				<div class="columns two container">
+					<div class="left column">
+						<form id="generate-form">
+							<!-- <input type="text" placeholder="URL" name="image-url" id="image-url"> -->
+							<input type="text" name="image-url" id="image-url" style="display: none">
+							<input type="text" placeholder="Top Text" name="top-text" maxlength="23">
+							<input type="text" placeholder="Bottom Text" name="bottom-text" maxlength="23">
+							<input type="submit" style="display: none"></input>
+						</form>
+					</div>
+
+					<div class="right column">
+						<div class="image-container" id="image-container">
+							<span>meme will be here!</span>
+						</div>
+					</div>
 				</div>
-				<div class="right column">
-					<a><button class="download" id="download">Download</button></a>
+
+				<div class="columns two container">
+					<div class="left column">
+							<button type="submit" id="generate">Generate!</button>
+					</div>
+					<div class="right column">
+						<a><button class="download" id="download">Download</button></a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -113,11 +123,11 @@
 
 					<!-- this is hilariously bad -->
 					<div class="meter">
-						<div class="progress-container">
+						<div class="progress-container" id="progress-container">
 							<div style="position: relative; height: 100%">
 								<div class="progress-bar"></div>
 								<div class="progress-amount">
-									<h3>$3,108</h3>
+									<h3>$<span id="progress-amount"></span></h3>
 									<p>Raised</p>
 								</div>
 							</div>
@@ -149,62 +159,134 @@
 			<div class="perk-slider container">
 				<ul>
 					<li>
-						<img src="http://placehold.it/100">
+						<a href="https://www.indiegogo.com/projects/save-snapshot-serengeti/contributions/new?perk_amt=8&perk_id=1173339">
+							<div class="perk-image">
+								<img src="/images/perks/aardvark.jpg">
+								<div class="call-to-action">Donate</div>
+								<div class="perk-amount">$<span>8</span></div>
+							</div>
+						</a>
 						<h3>Spice Up Your Screen</h3>
             <p>In addition to the warm, fuzzy feeling that you'll get by donating to Save Snapshot Serengeti we'll also email you 5 awesome high-resolution images from our collection. </p>
 					</li>
 					<li>
-						<img src="http://placehold.it/100">
+						<a href="https://www.indiegogo.com/projects/save-snapshot-serengeti/contributions/new?perk_amt=28&perk_id=1173340">
+							<div class="perk-image">
+								<img src="/images/perks/birds.jpg">
+								<div class="call-to-action">Donate</div>
+								<div class="perk-amount">$28</div>
+							</div>
+						</a>
 						<h3>First Look</h3>
             <p>Have your eyes be the first to see photos from Season 7. Funders at this level will get access to Season 7 for an entire week before we open it up to the rest of the world.</p>
 					</li>
 					<li>
-						<img src="http://placehold.it/100">
+						<a href="https://www.indiegogo.com/projects/save-snapshot-serengeti/contributions/new?perk_amt=55&perk_id=1173341">
+							<div class="perk-image">
+								<img src="/images/perks/cheeter.jpg">
+								<div class="call-to-action">Donate</div>
+								<div class="perk-amount">$55</div>
+							</div>
+						</a>
 						<h3>Snapshot Post Card</h3>
             <p>We'll take our favorite Snapshot Serengeti photo, turn it into a postcard, slap on a Tanzanian stamp, and send it to you from our Serengeti research station.</p>
 					</li>
 					<li>
-						<img src="http://placehold.it/100">
+						<a href="https://www.indiegogo.com/projects/save-snapshot-serengeti/contributions/new?perk_amt=80&perk_id=1173342">
+							<div class="perk-image">
+								<img src="/images/perks/dogg.jpg">
+								<div class="call-to-action">Donate</div>
+								<div class="perk-amount">$80</div>
+							</div>
+						</a>
 						<h3>Snapshot Greeting Cards</h3>
             <p>We'll send you a set of 4 quality cardstock greeting cards. Each will feature a different fantastic photo and be guaranteed dust-free so you can mail them out to friends and family.</p>
 					</li>
 					<li>
-						<img src="http://placehold.it/100">
+						<a href="https://www.indiegogo.com/projects/save-snapshot-serengeti/contributions/new?perk_amt=99&perk_id=1173343">
+							<div class="perk-image">
+								<img src="/images/perks/wildebeast.jpg">
+								<div class="call-to-action">Donate</div>
+								<div class="perk-amount">$99</div>
+							</div>
+						</a>
 						<h3>Wildebeest on Your Wall</h3>
             <p>Think the last thing you want to see is *another* wildebeest? How about seeing all the wildebeest at once? A $99 donation gets you a wildebeest photo-mosaic poster to hang proudly on your wall.</p>
 					</li>
 					<li>
-						<img src="http://placehold.it/100">
+						<a href="https://www.indiegogo.com/projects/save-snapshot-serengeti/contributions/new?perk_amt=200&perk_id=1173344">
+							<div class="perk-image">
+								<img src="/images/perks/dogg.jpg">
+								<div class="call-to-action">Donate</div>
+								<div class="perk-amount">$200</div>
+							</div>
+						</a>
 						<h3>Serengeti Self-portrait</h3>
             <p>Tired of the same old selfie for your Facebook profile? Add a lion! Send us a photo of yourself and we'll bring it into the field and snap a picture of your picture next to our lions.</p>
 					</li>
 					<li>
-						<img src="http://placehold.it/100">
+						<a href="https://www.indiegogo.com/projects/save-snapshot-serengeti/contributions/new?perk_amt=360&perk_id=1173345">
+							<div class="perk-image">
+								<img src="/images/perks/aardvark.jpg">
+								<div class="call-to-action">Donate</div>
+								<div class="perk-amount">$360</div>
+							</div>
+						</a>
 						<h3>Fancy Photograph</h3>
             <p>Our camera traps aren't the only photographers in Serengeti. Our resident lion-tracker, Daniel Rosengren, has generously donated one of his world-class photos to our cause. For a $360 donation, receive this limited edition, gallery quality print, signed by the Snapshot team.</p>
 					</li>
 					<li>
-						<img src="http://placehold.it/100">
+						<a href="https://www.indiegogo.com/projects/save-snapshot-serengeti/contributions/new?perk_amt=520&perk_id=1173346">
+							<div class="perk-image">
+								<img src="/images/perks/birds.jpg">
+								<div class="call-to-action">Donate</div>
+								<div class="perk-amount">$520</div>
+							</div>
+						</a>
 						<h3>Sponsor-a-Camera-Trap</h3>
             <p>Your generous donation will not only purchase a new camera trap and theoretically-hyena-proof-case, but also the batteries and SD cards to keep this camera snapping away for years to come.</p>
 					</li>
 					<li>
-						<img src="http://placehold.it/100">
+						<a href="https://www.indiegogo.com/projects/save-snapshot-serengeti/contributions/new?perk_amt=1000&perk_id=1173359">
+							<div class="perk-image">
+								<img src="/images/perks/wildebeast.jpg">
+								<div class="call-to-action">Donate</div>
+								<div class="perk-amount">$1,000</div>
+							</div>
+						</a>
 						<h3>Choose-Your-Own-Adventure-Cam</h3>
             <p>Want to sponsor a camera trap but are really tired of Thomson's gazelles? We'll let you *choose* the camera you want to sponsor from your favorite photograph.</p>
 					</li>
 					<li>
-						<img src="http://placehold.it/100">
+						<a href="https://www.indiegogo.com/projects/save-snapshot-serengeti/contributions/new?perk_amt=2000&perk_id=1173356">
+							<div class="perk-image">
+								<img src="/images/perks/cheeter.jpg">
+								<div class="call-to-action">Donate</div>
+								<div class="perk-amount">$2,000</div>
+							</div>
+						</a>
 						<h3>Dead Camera Centerpiece</h3>
             <p>Impress your guests with a mauled camera trap straight from the Serengeti. We lose between 30-50 cameras each year to hyenas, elephants, baboons, fire, rain, and ants. We'll send you one of these dead traps along with the last picture it ever took.</p>
 					</li>
 					<li>
-						<img src="http://placehold.it/100">
+						<a href="https://www.indiegogo.com/projects/save-snapshot-serengeti/contributions/new?perk_amt=5000&perk_id=1173357">
+							<div class="perk-image">
+								<img src="/images/perks/dogg.jpg">
+								<div class="call-to-action">Donate</div>
+								<div class="perk-amount">$5,000</div>
+							</div>
+						</a>
 						<h3>In-person Presentation</h3>
             <p>A member of the Snapshot Serengeti team will give a presentation at an event of your choice near Washington DC, Minneapolis, Chicago, Oxford (England), or in the Serengeti itself.</p>
 					</li>
 					<li>
-						<img src="http://placehold.it/100">
+						<a href="https://www.indiegogo.com/projects/save-snapshot-serengeti/contributions/new?perk_amt=10000&perk_id=1173358">
+							<div class="perk-image">
+								<img src="/images/perks/aardvark.jpg">
+								<div class="call-to-action">Donate</div>
+								<div class="perk-amount">$10,000</div>
+							</div>
+						</a>
 						<h3>Sponsor a GPS collar</h3>
             <p>Think radio-collared lions are cool? GPS collars take it to a whole new level. Your donation will get you exclusive access to the live data coming in from our one-and-only GPS-collared Serengeti lion. Plus everything else.</p>
 					</li>
@@ -213,7 +295,7 @@
 		</div>
 
 		<div class="section footer">
-			<img src="http://placehold.it/200">
+			<img src="/images/perks/cheeter_2.jpg">
 			<h3>Thanks for your Time!</h3>
 			<p>
 				With your help we'll be back snapping shots of the Serengeti<br>
