@@ -28,6 +28,14 @@ button {
   padding: 20px 30px;
   text-decoration: none;
   text-transform: uppercase;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+button:hover {
+  background-color: rgba(255,255,255,0.2);
 }
 h1,
 h2,
@@ -291,6 +299,9 @@ p:not(:first-of-type) {
 .story button {
   border-color: #019bb2;
   color: #019bb2;
+}
+.story button:hover {
+  background-color: rgba(1,155,178,0.1);
 }
 .memes {
   background: #07e69a;
