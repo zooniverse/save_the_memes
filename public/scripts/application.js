@@ -27,7 +27,7 @@
 
   serengetiImages = ['http://www.snapshotserengeti.org/subjects/standard/51e904fee0053a09c30b735c_0.jpg', 'http://www.snapshotserengeti.org/subjects/standard/51a39bcfe18f49172b19777c_0.jpg', 'http://www.snapshotserengeti.org/subjects/standard/51a332d6e18f49172b0cfe6f_0.jpg', 'http://www.snapshotserengeti.org/subjects/standard/51e8ed42e0053a09c308b433_0.jpg', 'http://www.snapshotserengeti.org/subjects/standard/51e8a9afe0053a09c300ea30_0.jpg', 'http://www.snapshotserengeti.org/subjects/standard/51a3528ae18f49172b10c2b2_0.jpg', 'http://www.snapshotserengeti.org/subjects/standard/51a37abae18f49172b15876b_0.jpg', 'http://www.snapshotserengeti.org/subjects/standard/50c214508a607540b9038e41_0.jpg', 'http://www.snapshotserengeti.org/subjects/standard/50c213e98a607540b9033aff_0.jpg', 'http://www.snapshotserengeti.org/subjects/standard/50c2104f8a607540b90033c4_0.jpg', 'http://www.snapshotserengeti.org/subjects/standard/50c2163b8a607540b904f94b_0.jpg', 'http://www.snapshotserengeti.org/subjects/standard/50c219198a607540b9071e73_0.jpg', 'http://www.snapshotserengeti.org/subjects/standard/50c217ce8a607540b90627be_0.jpg', 'http://www.snapshotserengeti.org/subjects/standard/50c211e68a607540b90187a0_0.jpg', 'http://www.snapshotserengeti.org/subjects/standard/50c2113a8a607540b900f706_0.jpg', 'http://www.snapshotserengeti.org/subjects/standard/50c217708a607540b905d640_0.jpg'].shuffle();
 
-  campaignProgress = 6018;
+  campaignProgress = 6900;
 
   campaignTotal = 33000;
 

@@ -37,7 +37,7 @@ serengetiImages = [
 	'http://www.snapshotserengeti.org/subjects/standard/50c217708a607540b905d640_0.jpg'
 ].shuffle()
 
-campaignProgress = 6018
+campaignProgress = 6900
 campaignTotal = 33000
 
 $ ->
