@@ -75,6 +75,9 @@ serengetiImages = [
 	'http://www.snapshotserengeti.org/subjects/standard/50c211e68a607540b90187a0_0.jpg'
 	'http://www.snapshotserengeti.org/subjects/standard/50c2113a8a607540b900f706_0.jpg'
 	'http://www.snapshotserengeti.org/subjects/standard/50c217708a607540b905d640_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/51a33cdfe18f49172b0e2d3d_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/51a32982e18f49172b0be0ee_0.jpg'
+	'http://www.snapshotserengeti.org/subjects/standard/50c213158a607540b90290f9_0.jpg'
 ].shuffle()
 
 CAMPAIGN_PROGRESS = 6900
