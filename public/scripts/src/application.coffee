@@ -53,8 +53,19 @@ $ ->
 
 
 	# Set progress meter height
-	progressContainer.css 'height', ((campaignProgress / campaignTotal) * 100) + '%'
-	progressAmount.html formatNumber campaignProgress
+	setMeter = (campaignProgress) ->
+		progressContainer.css 'height', ((campaignProgress / campaignTotal) * 100) + '%'
+		progressAmount.html formatNumber campaignProgress
+
+	request = $.ajax
+		url: 'http://indy-go-go.herokuapp.com/'
+		dataType: 'text'
+
+	request.done (campaignProgress) ->
+		setMeter Number(campaignProgress.replace(/[^0-9\.]+/g,""))
+
+	request.fail ->
+		setMeter campaignProgress
 
 
 	# Show four perks. For now.
@@ -157,9 +168,8 @@ $ ->
 
 
 	# Move navigation bar around
+	navigation = $('#navigation')
 	$(window).on 'scroll', (e) ->
-		navigation = $('#navigation')
-
 		if $(window).scrollTop() > '800'
 			navigation.css
 				"position": "fixed"

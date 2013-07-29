@@ -32,7 +32,7 @@
   campaignTotal = 33000;
 
   $(function() {
-    var column, downloadButton, form, fragment, handleGenerate, happyStoryBackground, i, imageContainer, imageUrlInput, img, isHappy, progressAmount, progressContainer, randomElement, sadStoryBackground, stage, storyButton, url, _i;
+    var column, downloadButton, form, fragment, handleGenerate, happyStoryBackground, i, imageContainer, imageUrlInput, img, isHappy, navigation, progressAmount, progressContainer, randomElement, request, sadStoryBackground, setMeter, stage, storyButton, url, _i;
     $.scrollIt();
     form = $('#generate-form').get(0);
     imageContainer = $('#image-container');
@@ -40,8 +40,20 @@
     downloadButton = $('#download');
     progressContainer = $('#progress-container');
     progressAmount = $('#progress-amount');
-    progressContainer.css('height', ((campaignProgress / campaignTotal) * 100) + '%');
-    progressAmount.html(formatNumber(campaignProgress));
+    setMeter = function(campaignProgress) {
+      progressContainer.css('height', ((campaignProgress / campaignTotal) * 100) + '%');
+      return progressAmount.html(formatNumber(campaignProgress));
+    };
+    request = $.ajax({
+      url: 'http://indy-go-go.herokuapp.com/',
+      dataType: 'text'
+    });
+    request.done(function(campaignProgress) {
+      return setMeter(Number(campaignProgress.replace(/[^0-9\.]+/g, "")));
+    });
+    request.fail(function() {
+      return setMeter(campaignProgress);
+    });
     while ($('.perk-slider li.active').length < 4) {
       randomElement = Math.floor(Math.random() * $('.perk-slider li:not(.active)').length);
       $('.perk-slider li:not(.active)').eq(randomElement).addClass('active');
@@ -77,7 +89,7 @@
     }
     stage.show();
     handleGenerate = function(e) {
-      var loading, request;
+      var loading;
       e.preventDefault();
       request = $.ajax({
         type: 'POST',
@@ -130,9 +142,8 @@
         return storyButton.html('Let\'s Watch!');
       }
     });
+    navigation = $('#navigation');
     return $(window).on('scroll', function(e) {
-      var navigation;
-      navigation = $('#navigation');
       if ($(window).scrollTop() > '800') {
         return navigation.css({
           "position": "fixed",
