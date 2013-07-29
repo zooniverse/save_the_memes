@@ -43,6 +43,7 @@ h2
 
 h3
 	font-size: 18px
+	letter-spacing: 2px
 	line-height: 22px
 	margin: 0 0 10px 0
 
@@ -140,16 +141,17 @@ p
 	.title
 		font-size: 80px
 		letter-spacing: 3px
-		line-height: 1.3em
+		line-height: 1.1em
 
 		i
 			font-family: $sans-serif
+			font-size: 60px
 			font-weight: 400
 			text-transform: none
 
 	p
 		font-size: 1.05em
-		font-weight: 700
+		font-weight: 400
 		line-height: 1.4em
 		margin: 0 0 60px 0
 
@@ -165,8 +167,8 @@ p
 
 	img
 		cursor: pointer
-		margin-top: 18px
-		max-width: 200px
+		margin-top: 21px
+		max-width: 180px
 
 	ul
 		clearfix()
@@ -188,7 +190,7 @@ p
 				cursor: pointer
 				display: block
 				height: 100%
-				line-height: 55px
+				line-height: 61px
 				text-decoration: none
 
 				&.active, &:hover
@@ -239,6 +241,9 @@ p
 		clearfix()
 		margin-top: 20px
 
+		button
+			width: 175px
+
 		> :first-child
 			float: left
 
@@ -285,6 +290,9 @@ $meme-base-color = #07e69a
 	.stage
 		display: none
 
+	.select-critter
+		padding-left: 10px
+
 	#stage-one
 
 		.column
@@ -295,12 +303,12 @@ $meme-base-color = #07e69a
 			transition: all 0.2s ease-in-out
 
 			&:hover
-				border-width: 0
 				cursor: pointer
 				transform: scale(1.2)
 
 	.image-container
-		border: 5px dashed rgba(#000, 0.2)
+		background: #fff
+		border: 5px solid rgba(#fff, 1)
 		border-radius: 10px
 		box-sizing: border-box
 		color: rgba(#000, 0.2)
@@ -415,6 +423,7 @@ $meme-base-color = #07e69a
 
 			.highlight
 				display: inline-block
+				font-family: $serif
 				font-size: 16px
 				font-weight: 700
 
