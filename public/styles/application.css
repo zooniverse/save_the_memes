@@ -368,6 +368,21 @@ p:not(:first-of-type) {
 .memes .download {
   display: none;
 }
+.memes .social-links {
+  display: none;
+  font-weight: 700;
+  margin-top: 15px;
+  text-align: center;
+  vertical-align: middle;
+}
+.memes .social-links > * {
+  padding: 0 5px;
+}
+.memes .social-links img {
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  width: 25px;
+}
 .contributions {
   background: #019bb2;
   -webkit-box-sizing: border-box;

@@ -18,6 +18,46 @@ Array::shuffle = ->
 
 	@
 
+# Social functions, cleverly ripped from the Zooniverse library
+socialImage = (url) ->
+  image = if @location.standard instanceof Array
+    @location.standard[Math.floor @location.standard.length / 2]
+  else
+    @location.standard
+
+  $("<a href='#{image}'></a>").get(0).href
+
+socialTitle = ->
+  'Save the Memes'
+
+socialMessage = (url) ->
+  """
+  	Saving the Memes! http://igg.me/at/serengeti/x
+  """
+
+facebookHref = (url) ->
+  """
+    https://www.facebook.com/sharer/sharer.php
+    ?s=100
+    &p[url]=#{encodeURIComponent url}
+    &p[title]=#{encodeURIComponent socialTitle()}
+    &p[summary]=#{encodeURIComponent socialMessage(url)}
+    &p[images][0]=#{ socialMessage(url) }
+  """.replace '\n', '', 'g'
+
+twitterHref = (url) ->
+  status = "#{ socialMessage(url)} #{ url }"
+  "http://twitter.com/home?status=#{encodeURIComponent status}"
+
+pinterestHref = (url) ->
+  """
+    http://pinterest.com/pin/create/button/
+    ?url=#{encodeURIComponent url }
+    &media=#{encodeURIComponent socialImage(url)}
+    &description=#{encodeURIComponent socialMessage(url)}
+  """.replace '\n', '', 'g'
+
+
 serengetiImages = [
 	'http://www.snapshotserengeti.org/subjects/standard/51e904fee0053a09c30b735c_0.jpg'
 	'http://www.snapshotserengeti.org/subjects/standard/51a39bcfe18f49172b19777c_0.jpg'
@@ -48,6 +88,7 @@ $ ->
 	imageContainer = $('#image-container')
 	imageUrlInput = $('#image-url')
 	downloadButton = $('#download')
+	socialLinks = $('#social-links')
 	progressContainer = $('#progress-container')
 	progressAmount = $('#progress-amount')
 
@@ -132,6 +173,11 @@ $ ->
 				imageContainer.html img
 				downloadButton.show()
 				downloadButton.parent().first().attr 'href', url
+				socialLinks.show()
+
+				$('#facebook-link').attr 'href', facebookHref url
+				$('#twitter-link').attr 'href', twitterHref url
+				$('#pinterest-link').attr 'href', pinterestHref url
 
 			img.src = url
 
