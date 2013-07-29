@@ -37,8 +37,8 @@ serengetiImages = [
 	'http://www.snapshotserengeti.org/subjects/standard/50c217708a607540b905d640_0.jpg'
 ].shuffle()
 
-campaignProgress = 6900
-campaignTotal = 33000
+CAMPAIGN_PROGRESS = 6900
+CAMPAIGN_TOTAL = 33000
 
 $ ->
 	$.scrollIt()
@@ -54,18 +54,18 @@ $ ->
 
 	# Set progress meter height
 	setMeter = (campaignProgress) ->
-		progressContainer.css 'height', ((campaignProgress / campaignTotal) * 100) + '%'
+		progressContainer.css 'height', ((campaignProgress / CAMPAIGN_TOTAL) * 100) + '%'
 		progressAmount.html formatNumber campaignProgress
 
-	request = $.ajax
+	window.callback = (campaignProgress) ->
+		unless campaignProgress is 'true'
+			setMeter Number(campaignProgress.replace(/[^0-9\.]+/g,""))
+		else
+			setMeter CAMPAIGN_PROGRESS
+
+	$.ajax
 		url: 'http://indy-go-go.herokuapp.com/'
-		dataType: 'text'
-
-	request.done (campaignProgress) ->
-		setMeter Number(campaignProgress.replace(/[^0-9\.]+/g,""))
-
-	request.fail ->
-		setMeter campaignProgress
+		dataType: 'jsonp'
 
 
 	# Show four perks. For now.
