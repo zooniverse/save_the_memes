@@ -58,7 +58,7 @@ $ ->
 		progressAmount.html formatNumber campaignProgress
 
 	window.callback = (campaignProgress) ->
-		unless campaignProgress is 'true'
+		unless typeof campaignProgress is 'boolean'
 			setMeter Number(campaignProgress.replace(/[^0-9\.]+/g,""))
 		else
 			setMeter CAMPAIGN_PROGRESS

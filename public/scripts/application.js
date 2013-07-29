@@ -45,7 +45,7 @@
       return progressAmount.html(formatNumber(campaignProgress));
     };
     window.callback = function(campaignProgress) {
-      if (campaignProgress !== 'true') {
+      if (typeof campaignProgress !== 'boolean') {
         return setMeter(Number(campaignProgress.replace(/[^0-9\.]+/g, "")));
       } else {
         return setMeter(CAMPAIGN_PROGRESS);
