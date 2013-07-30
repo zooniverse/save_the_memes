@@ -19,14 +19,6 @@ Array::shuffle = ->
 	@
 
 # Social functions, cleverly ripped from the Zooniverse library
-socialImage = (url) ->
-  image = if @location.standard instanceof Array
-    @location.standard[Math.floor @location.standard.length / 2]
-  else
-    @location.standard
-
-  $("<a href='#{image}'></a>").get(0).href
-
 socialTitle = ->
   'Save the Memes'
 
@@ -53,7 +45,6 @@ pinterestHref = (url) ->
   """
     http://pinterest.com/pin/create/button/
     ?url=#{encodeURIComponent url }
-    &media=#{encodeURIComponent socialImage(url)}
     &description=#{encodeURIComponent socialMessage(url)}
   """.replace '\n', '', 'g'
 
@@ -85,7 +76,7 @@ serengetiImages = [
 	'http://www.snapshotserengeti.org/subjects/standard/50c210c28a607540b9009237_0.jpg'
 ].shuffle()
 
-CAMPAIGN_PROGRESS = 6900
+CAMPAIGN_PROGRESS = 11038
 CAMPAIGN_TOTAL = 33000
 
 $ ->
