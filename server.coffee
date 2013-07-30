@@ -3,6 +3,7 @@ Canvas = require 'canvas'
 express = require 'express'
 fs = require 'fs'
 http = require 'http'
+mime = require 'mime'
 request = require 'request'
 shortId = require 'shortid'
 
@@ -88,6 +89,7 @@ app.post '/', (req, res) ->
 								Bucket: 'www.snapshotserengeti.org'
 								Key: 'meme/' + id + '.jpg'
 								Body: fs.readFileSync memedImage
+								ContentType: mime.lookup memedImage
 								(err, data) ->
 									if err
 										res.send 400
