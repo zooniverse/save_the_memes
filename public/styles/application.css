@@ -465,6 +465,7 @@ p:not(:first-of-type) {
   right: 225%;
   text-align: right;
   top: -9px;
+  width: 100px;
 }
 .contributions .progress-amount h3,
 .contributions .progress-amount p {
