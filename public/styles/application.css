@@ -501,7 +501,7 @@ p:not(:first-of-type) {
 .perks {
   background: #22211a;
   color: #fff;
-  padding: 90px 0 70px 0;
+  padding: 90px 0;
   z-index: 7;
 }
 .perks:after {
