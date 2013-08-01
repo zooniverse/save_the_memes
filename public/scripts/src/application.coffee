@@ -27,14 +27,14 @@ socialMessage = (url) ->
   	Saving the Memes! http://igg.me/at/serengeti/x
   """
 
-facebookHref = (url) ->
+facebookHref = (url, html) ->
   """
     https://www.facebook.com/sharer/sharer.php
     ?s=100
-    &p[url]=#{encodeURIComponent url}
+    &p[url]=#{encodeURIComponent html}
     &p[title]=#{encodeURIComponent socialTitle()}
     &p[summary]=#{encodeURIComponent socialMessage(url)}
-    &p[images][0]=#{ socialMessage(url) }
+    &p[images][0]=#{ url }
   """.replace '\n', '', 'g'
 
 twitterHref = (url) ->
@@ -165,7 +165,7 @@ $ ->
 		imageContainer.html ''
 		loading = new Spinner().spin imageContainer.get(0)
 
-		request.done ({url}) ->
+		request.done ({url, html}) ->
 			img = new Image
 			img.onload = ->
 				loading.stop()
@@ -174,7 +174,7 @@ $ ->
 				downloadButton.parent().first().attr 'href', url
 				socialLinks.show()
 
-				$('#facebook-link').attr 'href', facebookHref url
+				$('#facebook-link').attr 'href', facebookHref url, html
 				$('#twitter-link').attr 'href', twitterHref url
 				$('#pinterest-link').attr 'href', pinterestHref url
 

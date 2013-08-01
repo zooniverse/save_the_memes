@@ -1,3 +1,4 @@
+_ = require 'underscore'
 AWS = require 'aws-sdk'
 Canvas = require 'canvas'
 express = require 'express'
@@ -6,6 +7,44 @@ http = require 'http'
 mime = require 'mime'
 request = require 'request'
 shortId = require 'shortid'
+
+memeTemplate =
+  """
+  <html>
+    <head>
+      <title>Save the Memes!</title>
+      <meta property="og:image" content="<%= image_url %>"/>
+      <style type="text/css">
+        .container {
+          margin: 0 auto;
+          text-align: center;
+          width: 960px;
+        }
+
+        body {
+          background: #f9f8f3;
+          color: #222;
+          font-family: sans-serif;
+        }
+
+        p {
+          padding: 0 100px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h1>Saving the Memes</h1>
+        <h4>one picture at a time</h4>
+        <img src="<%= image_url %>">
+        <p>
+          Please allow us to continue taking pictures of animals
+          by contributing to our <a href="http://igg.me/at/serengeti">funding campaign</a>.
+        </p>
+      </div>
+    </body>
+  </html>
+  """
 
 Font = Canvas.Font
 Image = Canvas.Image
@@ -85,6 +124,18 @@ app.post '/', (req, res) ->
 
           canvasStream.on 'end', ->
             setTimeout -> # this seems bad
+              imageUrl = "http://www.snapshotserengeti.org/meme/#{ id }.jpg"
+              memeUrl = "http://www.snapshotserengeti.org/meme/#{ id }.html"
+              memeHtml = _.template memeTemplate, { image_url: imageUrl }
+
+              s3.putObject
+                Bucket: 'www.snapshotserengeti.org'
+                Key: 'meme/' + id + '.html'
+                Body: memeHtml
+                ContentType: 'text/html'
+                (err, data) ->
+                  #
+
               s3.putObject
                 Bucket: 'www.snapshotserengeti.org'
                 Key: 'meme/' + id + '.jpg'
@@ -94,7 +145,7 @@ app.post '/', (req, res) ->
                   if err
                     res.send 400
                   else
-                    res.send 200, {url: "http://www.snapshotserengeti.org/meme/#{ id }.jpg"}
+                    res.send 200, { url: imageUrl, html: memeUrl }
                     fs.unlinkSync memedImage
                     fs.unlinkSync originalImage
             , 100
@@ -103,7 +154,7 @@ app.post '/', (req, res) ->
 
     else
       res.send 'too big file'
-      
+
 
 port = process.env.PORT || 3003
 app.listen port, ->
