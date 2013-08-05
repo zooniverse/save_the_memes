@@ -37,9 +37,10 @@
     return ("https://www.facebook.com/sharer/sharer.php\n?s=100\n&p[url]=" + (encodeURIComponent(html)) + "\n&p[title]=" + (encodeURIComponent(socialTitle())) + "\n&p[summary]=" + (encodeURIComponent(socialMessage(url))) + "\n&p[images][0]=" + url).replace('\n', '', 'g');
   };
 
-  twitterHref = function(url) {
+  twitterHref = function(url, html) {
     var status;
-    status = "" + (socialMessage(url)) + " " + url;
+    status = "" + (socialMessage(html)) + " " + html;
+    console.log(status);
     return "http://twitter.com/home?status=" + (encodeURIComponent(status));
   };
 
@@ -137,8 +138,8 @@
           downloadButton.parent().first().attr('href', url);
           socialLinks.show();
           $('#facebook-link').attr('href', facebookHref(url, html));
-          $('#twitter-link').attr('href', twitterHref(url));
-          return $('#pinterest-link').attr('href', pinterestHref(url));
+          $('#twitter-link').attr('href', twitterHref(url, html));
+          return $('#pinterest-link').attr('href', pinterestHref(url, html));
         };
         return img.src = url;
       });

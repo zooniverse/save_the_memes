@@ -37,8 +37,9 @@ facebookHref = (url, html) ->
     &p[images][0]=#{ url }
   """.replace '\n', '', 'g'
 
-twitterHref = (url) ->
-  status = "#{ socialMessage(url)} #{ url }"
+twitterHref = (url, html) ->
+  status = "#{ socialMessage(html)} #{ html }"
+  console.log status
   "http://twitter.com/home?status=#{encodeURIComponent status}"
 
 pinterestHref = (url) ->
@@ -175,8 +176,8 @@ $ ->
 				socialLinks.show()
 
 				$('#facebook-link').attr 'href', facebookHref url, html
-				$('#twitter-link').attr 'href', twitterHref url
-				$('#pinterest-link').attr 'href', pinterestHref url
+				$('#twitter-link').attr 'href', twitterHref url, html
+				$('#pinterest-link').attr 'href', pinterestHref url, html
 
 			img.src = url
 

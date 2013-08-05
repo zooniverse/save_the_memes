@@ -13,30 +13,48 @@ memeTemplate =
   <html>
     <head>
       <title>Save the Memes!</title>
-      <meta property="og:image" content="<%= image_url %>"/>
+      <meta property=”og:title” content=”Save the Memes!” />
+      <meta property="og:image" content="<%= image_url %>" />
+      <meta property=”og:type” content=”cause” />
+      <meta property=”og:description” content=”Save the Memes is part of the campaign to fund Snapshot Serengeti through the end of 2013.“ />
+      <meta property=”og:url” content=”<%= meme_url %>” />
+
+      <meta name=”twitter:card” content=”summary” />
+      <meta name=”twitter:url” content=”<%= meme_url %>“ />
+      <meta name=”twitter:title” content=”Save the Memes!”>
+      <meta property=”twitter:description” content=”Save the Memes is part of the campaign to fund Snapshot Serengeti through the end of 2013.“ />
+      <meta name=”twitter:image” content=”<%= image_url %>” />
+
+      <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:700|Open+Sans" rel="stylesheet" type="text/css">
       <style type="text/css">
         .container {
           margin: 0 auto;
           text-align: center;
-          width: 960px;
+          width: 760px;
         }
 
         body {
           background: #f9f8f3;
           color: #222;
-          font-family: sans-serif;
+          font-family: "Open Sans", sans-serif;
+          padding: 30px 0;
         }
 
         p {
           padding: 0 100px;
+        }
+
+        img {
+          border: 0;
+          max-width: 100%;
         }
       </style>
     </head>
     <body>
       <div class="container">
         <h1>Saving the Memes</h1>
-        <h4>one picture at a time</h4>
-        <img src="<%= image_url %>">
+        <h4>One picture at a time</h4>
+        <a href="http://www.savethememes.org"><img src="<%= image_url %>"></a>
         <p>
           Please allow us to continue taking pictures of animals
           by contributing to our <a href="http://igg.me/at/serengeti">funding campaign</a>.
@@ -126,7 +144,7 @@ app.post '/', (req, res) ->
             setTimeout -> # this seems bad
               imageUrl = "http://www.snapshotserengeti.org/meme/#{ id }.jpg"
               memeUrl = "http://www.snapshotserengeti.org/meme/#{ id }.html"
-              memeHtml = _.template memeTemplate, { image_url: imageUrl }
+              memeHtml = _.template memeTemplate, { image_url: imageUrl, meme_url: memeUrl }
 
               s3.putObject
                 Bucket: 'www.snapshotserengeti.org'
